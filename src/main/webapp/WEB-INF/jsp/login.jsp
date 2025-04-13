@@ -5,7 +5,7 @@
 
     <body>
 
-        Login Here
+        You will be redirected to ${redirectTo} page once logged in.
 
     </body>
 
