@@ -49,6 +49,8 @@ public class LoginController {
             return "welcome";
         }
 
+        model.put("errorMessage", "Boss! your password or name is wrong");
+
         return "login";
     }
 }

@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +36,16 @@
           text-align: center;
           margin-bottom: 1.5rem;
           color: #333;
+        }
+
+        .error-message {
+          background-color: #ffe5e5;
+          color: #d8000c;
+          border: 1px solid #d8000c;
+          padding: 0.75rem;
+          border-radius: 0.5rem;
+          margin-bottom: 1rem;
+          font-size: 0.95rem;
         }
 
         .form-group {
@@ -97,7 +110,15 @@
 <body>
 <div class="login-container">
     <h2>Login</h2>
-    <form method="post">
+
+    <!-- Error message from ModelMap -->
+    <c:if test="${not empty errorMessage}">
+        <div class="error-message">
+            ${errorMessage}
+        </div>
+    </c:if>
+
+    <form method="post" action="/login">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required />
@@ -112,8 +133,9 @@
         </div>
         <button class="login-btn" type="submit">Sign In</button>
     </form>
+
     <div class="bottom-text">
-        Dont have an account? <a href="#">Register</a>
+        Don’t have an account? <a href="#">Register</a>
     </div>
 </div>
 </body>
